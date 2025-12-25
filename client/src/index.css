@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=VT323&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Habbo-inspired Palette */
+  --background: 210 20% 98%;
+  --foreground: 222 47% 11%;
+  
+  --primary: 25 95% 53%; /* Habbo Orange */
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 199 89% 48%; /* Habbo Blue */
+  --secondary-foreground: 0 0% 100%;
+  
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 16% 47%;
+  
+  --accent: 45 93% 57%; /* Gold/Yellow */
+  --accent-foreground: 222 47% 11%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+  
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 25 95% 53%;
+  
+  --radius: 0.5rem;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30;
+    font-family: 'Outfit', sans-serif;
+    background-image: 
+      radial-gradient(#E5E7EB 1px, transparent 1px),
+      radial-gradient(#E5E7EB 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'VT323', monospace;
+  }
+}
+
+@layer utilities {
+  .pixel-corners {
+    clip-path: polygon(
+      0px 4px, 4px 4px, 4px 0px, 
+      calc(100% - 4px) 0px, calc(100% - 4px) 4px, 100% 4px, 
+      100% calc(100% - 4px), calc(100% - 4px) calc(100% - 4px), calc(100% - 4px) 100%, 
+      4px 100%, 4px calc(100% - 4px), 0px calc(100% - 4px)
+    );
+  }
+  
+  .font-pixel {
+    font-family: 'VT323', monospace;
+  }
+
+  .text-shadow-pixel {
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+  }
+  
+  .box-shadow-pixel {
+    box-shadow: 
+      inset 2px 2px 0px rgba(255,255,255,0.4),
+      inset -2px -2px 0px rgba(0,0,0,0.2),
+      4px 4px 0px rgba(0,0,0,0.1);
+  }
+}
+
+/* Custom Cursor */
+body {
+  cursor: url('https://files.habboemotion.com/resources/images/cursors/arrow.png'), auto;
+}
+
+button:hover {
+  cursor: url('https://files.habboemotion.com/resources/images/cursors/hand.png'), pointer;
+}
